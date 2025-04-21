@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/enterScreen">
+
+
+    <fragment
+        tools:layout="@layout/screen_enter"
+        android:id="@+id/enterScreen"
+        android:name="com.example.mamadiyorov_lazizbek.chatappgita.ui.screens.enter.EnterScreen"
+        android:label="EnterScreen" >
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@layout/screen_enter"
+            android:id="@+id/action_enterScreen_to_screenUserList"
+            app:destination="@id/screenUserList" />
+
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_user_list"
+        android:id="@+id/screenUserList"
+        android:name="com.example.mamadiyorov_lazizbek.chatappgita.ui.screens.user_list.ScreenUserList"
+        android:label="ScreenUserList"
+        >
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="userEmail"
+            app:argType="string" />
+        <argument
+            android:name="userProfileImage"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_screenUserList_to_chatsScreen"
+            app:destination="@id/chatsScreen" />
+
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_chats"
+        android:id="@+id/chatsScreen"
+        android:name="com.example.mamadiyorov_lazizbek.chatappgita.ui.screens.chats.ChatsScreen"
+        android:label="ChatsScreen" >
+        <argument
+            android:name="userIdCurrent"
+            app:argType="string" />
+        <argument
+            android:name="userIdOther"
+            app:argType="string" />
+        <argument
+            android:name="userNameNextOther"
+            app:argType="string" />
+        <argument
+            android:name="userEmailOther"
+            app:argType="string" />
+        <argument
+            android:name="userProfileImageOther"
+            app:argType="string" />
+    </fragment>
+
+
+</navigation>
